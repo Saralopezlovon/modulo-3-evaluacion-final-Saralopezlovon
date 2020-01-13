@@ -1,3 +1,18 @@
-.App {
+/*Reset*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*Homepage*/
+
+body {
+  background: #000000;
+}
+
+.homepage-container {
+  background: #000000;
   text-align: center;
 }

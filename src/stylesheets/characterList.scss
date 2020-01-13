@@ -1,0 +1,11 @@
+/*Container of characters*/
+
+.characters-container {
+  padding-top: 13px;
+  padding-left: 90px;
+  padding-right: 90px;
+  align-content: center;
+  align-items: center;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
