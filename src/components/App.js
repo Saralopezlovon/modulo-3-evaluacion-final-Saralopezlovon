@@ -51,7 +51,7 @@ class App extends React.Component {
         <Header />
         <Switch>
           <Route path="/" exact>
-            <Filters handleSearch={this.handleSearch} />
+            <Filters handleSearch={this.handleSearch} value={this.state.searchText} />
             <CharacterList characters={this.filteredCharacters()} />
           </Route>
 
