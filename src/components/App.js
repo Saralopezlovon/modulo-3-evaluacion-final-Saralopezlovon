@@ -33,7 +33,7 @@ class App extends React.Component {
     const routeId = parseInt(props.match.params.id);
     const character = this.state.characters.find(character => character.id === routeId);
     if (character === undefined) {
-      return <p>Personaje no encontrado en la lista</p>;
+      return <p className="error">Personaje no encontrado en la lista</p>;
     } else {
       return <CharacterDetail character={character} />;
     }
