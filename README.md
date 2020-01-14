@@ -69,4 +69,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 ### Funcionamiento
 
-Esta
+Esta pagina web permite al usuario conocer información sobre los personajes de Rick and Morty, filtrando por su nombre en el campo de búsqueda, a su vez pinchando en la tarjeta se consigue una mayor descripción especificando los campos de status, species, origin y episodes.
+
+Toda esta información se consigue a través de la api:
+https://raw.githubusercontent.com/Adalab/rick-y-morty/master/data/rick-y-morty.json
