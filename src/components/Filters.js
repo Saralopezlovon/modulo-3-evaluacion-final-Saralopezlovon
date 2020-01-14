@@ -7,8 +7,12 @@ function Filters(props) {
     props.handleSearch({ value: ev.target.value });
   };
 
+  const onSubmit = ev => {
+    ev.preventDefault();
+  };
+
   return (
-    <form className="input-container">
+    <form className="input-container" onSubmit={onSubmit}>
       <input className="input" type="text" onChange={handleSearch} value={props.value} />
     </form>
   );
