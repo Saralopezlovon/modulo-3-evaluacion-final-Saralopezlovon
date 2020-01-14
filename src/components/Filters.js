@@ -1,8 +1,8 @@
 import React from "react";
 import "../stylesheets/filters.scss";
+import PropTypes from "prop-types";
 
 function Filters(props) {
-  console.log(props.value);
   const handleSearch = ev => {
     props.handleSearch({ value: ev.target.value });
   };
@@ -13,5 +13,10 @@ function Filters(props) {
     </form>
   );
 }
+
+Filters.propTypes = {
+  handleSearch: PropTypes.func,
+  value: PropTypes.string
+};
 
 export default Filters;

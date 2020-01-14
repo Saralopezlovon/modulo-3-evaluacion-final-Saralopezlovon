@@ -1,9 +1,9 @@
 import React from "react";
 import CharacterCard from "./CharacterCard";
 import "../stylesheets/characterList.scss";
+import PropTypes from "prop-types";
 
 const CharacterList = props => {
-  console.log(props.characters);
   return (
     <div className="characters-container">
       {props.characters.map(character => {
@@ -11,6 +11,11 @@ const CharacterList = props => {
       })}
     </div>
   );
+};
+
+CharacterList.propTypes = {
+  id: PropTypes.number,
+  character: PropTypes.string
 };
 
 export default CharacterList;

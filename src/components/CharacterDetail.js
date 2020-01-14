@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../stylesheets/characterDetail.scss";
+import PropTypes from "prop-types";
 
 function CharacterDetail(props) {
   return (
@@ -24,4 +25,12 @@ function CharacterDetail(props) {
     </div>
   );
 }
+
+CharacterDetail.propTypes = {
+  image: PropTypes.element,
+  name: PropTypes.string,
+  species: PropTypes.string,
+  length: PropTypes.number
+};
+
 export default CharacterDetail;
