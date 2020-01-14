@@ -6,6 +6,14 @@
   box-sizing: border-box;
 }
 
+a {
+  &:link,
+  &:visited,
+  &:active {
+    text-decoration: none;
+  }
+}
+
 /*Homepage*/
 
 body {
