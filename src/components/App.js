@@ -12,15 +12,27 @@ class App extends React.Component {
     super();
     this.state = {
       characters: [],
-      searchText: ""
+      searchText: "",
+      specieSelected: "",
+      gender: ""
     };
     this.renderDetailCharacter = this.renderDetailCharacter.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+    this.handleFilter = this.handleFilter.bind(this);
+    this.handleFilterGender = this.handleFilterGender.bind(this);
     this.filteredCharacters = this.filteredCharacters.bind(this);
   }
 
   handleSearch(searchText) {
     this.setState({ searchText: searchText.value });
+  }
+
+  handleFilter(specieSelected) {
+    this.setState({ specieSelected: specieSelected.value });
+  }
+
+  handleFilterGender(gender) {
+    this.setState({ gender: gender.value });
   }
 
   componentDidMount() {
@@ -40,18 +52,26 @@ class App extends React.Component {
   }
 
   filteredCharacters() {
-    return this.state.characters.filter(character => {
-      return character.name.toLowerCase().includes(this.state.searchText.toLowerCase());
-    });
+    return this.state.characters
+      .filter(character => {
+        return character.name.toLowerCase().includes(this.state.searchText.toLowerCase());
+      })
+      .filter(character => {
+        return character.species.toLowerCase().includes(this.state.specieSelected.toLowerCase());
+      })
+      .filter(character => {
+        return character.gender.toLowerCase() === this.state.gender.toLowerCase() || this.state.gender === "";
+      });
   }
 
   render() {
+    console.log(this.state.specieSelected);
     return (
       <div className="homepage-container">
         <Header />
         <Switch>
           <Route path="/" exact>
-            <Filters handleSearch={this.handleSearch} value={this.state.searchText} />
+            <Filters handleSearch={this.handleSearch} value={this.state.searchText} handleFilter={this.handleFilter} specieSelected={this.state.specieSelected} handleFilterGender={this.handleFilterGender} gender={this.state.gender} />
             <CharacterList characters={this.filteredCharacters()} />
           </Route>
 
