@@ -21,9 +21,15 @@ function Filters(props) {
     props.handleFilterGender({ value: gender });
   };
 
+  const handleSearch2 = ev => {
+    const episodes = ev.target.value;
+    props.handleSearch2({ value: episodes });
+  };
+
   return (
     <form className="input-container" onSubmit={onSubmit}>
       <input className="input" type="text" onChange={handleSearch} value={props.value} />
+      <input className="input2" type="text" onChange={handleSearch2} value={props.episodes} />
       <br></br>
       <br></br>
       <br></br>

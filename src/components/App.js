@@ -14,17 +14,24 @@ class App extends React.Component {
       characters: [],
       searchText: "",
       specieSelected: "",
-      gender: ""
+      gender: "",
+      episodes: ""
     };
+
     this.renderDetailCharacter = this.renderDetailCharacter.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleFilter = this.handleFilter.bind(this);
     this.handleFilterGender = this.handleFilterGender.bind(this);
     this.filteredCharacters = this.filteredCharacters.bind(this);
+    this.handleSearch2 = this.handleSearch2.bind(this);
   }
 
   handleSearch(searchText) {
     this.setState({ searchText: searchText.value });
+  }
+
+  handleSearch2(episodes) {
+    this.setState({ episodes: episodes.value });
   }
 
   handleFilter(specieSelected) {
@@ -61,6 +68,10 @@ class App extends React.Component {
       })
       .filter(character => {
         return character.gender.toLowerCase() === this.state.gender.toLowerCase() || this.state.gender === "";
+      })
+
+      .filter(character => {
+        return character.episode.length === parseInt(this.state.episodes) || this.state.episodes === "";
       });
   }
 
@@ -71,7 +82,7 @@ class App extends React.Component {
         <Header />
         <Switch>
           <Route path="/" exact>
-            <Filters handleSearch={this.handleSearch} value={this.state.searchText} handleFilter={this.handleFilter} specieSelected={this.state.specieSelected} handleFilterGender={this.handleFilterGender} gender={this.state.gender} />
+            <Filters handleSearch={this.handleSearch} value={this.state.searchText} handleSearch2={this.handleSearch2} episodes={this.state.episodes} handleFilter={this.handleFilter} specieSelected={this.state.specieSelected} handleFilterGender={this.handleFilterGender} gender={this.state.gender} />
             <CharacterList characters={this.filteredCharacters()} />
           </Route>
 
